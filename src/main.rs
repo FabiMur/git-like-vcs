@@ -29,7 +29,16 @@ enum Command {
 
         tree_hash: String,
     },
-    WriteTree
+    WriteTree,
+    CommitTree {
+        #[clap(short = 'm')]
+        message: String,
+
+        #[clap(short = 'p')]
+        parent_hash: Option<String>,
+
+        tree_hash: String,
+    },
 }
 
 fn main() -> anyhow::Result<()> {
@@ -50,6 +59,9 @@ fn main() -> anyhow::Result<()> {
         }
         Command::WriteTree => {
             commands::write_tree()?;
+        }
+        Command::CommitTree { message, tree_hash, parent_hash } => {
+            commands::commit_tree(message, tree_hash, parent_hash)?;
         }
     }
 

@@ -13,3 +13,4 @@ flate2 = "1.0.34"                                       # compression
 hex = "0.4.3"                                           # convert bytes to hex strings
 sha1 = "0.10.0"                                         # hash function 
 thiserror = "1.0.38"                                    # error handling
+chrono = "0.4"                                          # date and time reading
