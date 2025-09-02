@@ -24,10 +24,12 @@ enum Command {
         file: PathBuf,
     },
     LsTree {
-        #[clap(short = 'n')]
+        #[clap(long)]
         name_only: bool,
+
         tree_hash: String,
     },
+    WriteTree
 }
 
 fn main() -> anyhow::Result<()> {
@@ -45,6 +47,9 @@ fn main() -> anyhow::Result<()> {
         }
         Command::LsTree { name_only, tree_hash } => {
             commands::ls_tree(name_only, &tree_hash)?;
+        }
+        Command::WriteTree => {
+            commands::write_tree()?;
         }
     }
 
