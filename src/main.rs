@@ -39,6 +39,10 @@ enum Command {
 
         tree_hash: String,
     },
+    Clone {
+        url: String,
+        dir: String,
+    },
 }
 
 fn main() -> anyhow::Result<()> {
@@ -62,6 +66,9 @@ fn main() -> anyhow::Result<()> {
         }
         Command::CommitTree { message, tree_hash, parent_hash } => {
             commands::commit_tree(message, tree_hash, parent_hash)?;
+        }
+        Command::Clone { url, dir } => {
+            commands::clone(url, dir)?;
         }
     }
 

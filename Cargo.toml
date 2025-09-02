@@ -14,3 +14,4 @@ hex = "0.4.3"                                           # convert bytes to hex s
 sha1 = "0.10.0"                                         # hash function 
 thiserror = "1.0.38"                                    # error handling
 chrono = "0.4"                                          # date and time reading
+git2 = "0.15.0"                                         # to use the clone command
